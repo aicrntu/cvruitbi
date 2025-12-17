@@ -1,6 +1,6 @@
 # CVRUT ITBI
 
-It built using **Next.js**, **Node.js**, **Express**, and **MongoDB**, designed for real-world institutional and industry use.
+It built using **Next.js**, **Node.js**, **Express**, and **MongoDB**.
 
 The application follows **clean architecture**, **scalable folder structure**, and **industry best practices**, supporting long-term maintainability, security, and extensibility.
 
