@@ -115,8 +115,6 @@ export default function AdminDashboard() {
         onSearch={() => setPage(1)}
       />
 
-      {/* --- Removed SortBar --- */}
-
       {/* CHARTS */}
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
         <StagePieChart forms={filteredSorted} />

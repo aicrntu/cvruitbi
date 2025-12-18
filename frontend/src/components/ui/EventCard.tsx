@@ -13,7 +13,7 @@ export default function EventCard({
   title: string;
   speaker?: string;
   description?: string;
-  fullDate: SafeDate; // ✅ SAFE TYPE
+  fullDate: SafeDate;
 }) {
   const hasImage = typeof image === "string" && image.trim() !== "";
 
