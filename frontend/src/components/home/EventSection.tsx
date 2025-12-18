@@ -6,10 +6,12 @@ import Button from "@/components/ui/Button";
 import { getAllEvents } from "@/services/event.service";
 import { getImageUrl } from "@/helpers/image";
 
+// ✅ FIXED: day is now string (SafeDate compatible)
 function getFullDate(dateString: string) {
   const d = new Date(dateString);
+
   return {
-    day: d.getDate(),
+    day: String(d.getDate()), // 🔥 FIX
     monthYear: d.toLocaleDateString("en-US", {
       month: "short",
       year: "numeric",
@@ -27,7 +29,7 @@ export default function EventSection() {
       const res = await getAllEvents();
       if (res.success && res.data) {
         const sorted = res.data.reverse();
-        setEvents(sorted.slice(0, 5)); // number of cards 
+        setEvents(sorted.slice(0, 5)); // number of cards
       }
     })();
   }, []);
@@ -121,7 +123,7 @@ export default function EventSection() {
                   <EventCard
                     image={getImageUrl(ev.title_img)}
                     title={ev.event_name}
-                    description={ev.event_desc} 
+                    description={ev.event_desc}
                     speaker={ev.key_speaker}
                     fullDate={getFullDate(ev.event_date)}
                   />
@@ -133,7 +135,10 @@ export default function EventSection() {
 
         {!showAll && (
           <div className="flex justify-center mt-5">
-            <Button className="text-xs px-4 py-1.5" onClick={() => setShowAll(true)}>
+            <Button
+              className="text-xs px-4 py-1.5"
+              onClick={() => setShowAll(true)}
+            >
               View All
             </Button>
           </div>
@@ -154,7 +159,10 @@ export default function EventSection() {
             </div>
 
             <div className="flex justify-center mt-6">
-              <Button className="text-xs px-4 py-1.5" onClick={() => setShowAll(false)}>
+              <Button
+                className="text-xs px-4 py-1.5"
+                onClick={() => setShowAll(false)}
+              >
                 Show Less
               </Button>
             </div>
